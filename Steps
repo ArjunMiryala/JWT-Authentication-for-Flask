@@ -1,4 +1,13 @@
 STEPS Followed while learning:
-  1) initialize a python Virtual env(remote environment) so that the folder has its own python interpretor and its own library folder
+  1) initialize a python Virtual env(remote environment) so that the folder has its own python interpretor and its own library folder (make sure .env file is  laready present in our main project directory)
   2) Install Flask Library
-  3) Go ahead and activate scripts inenv folder by source env/Scripts/activate(works in bash terminal
+  3) Go ahead and activate scripts inenv folder by source env/Scripts/activate(works in bash terminal)
+
+
+  4) To run the app:
+    ---> export FLASK_APP=main.py
+    ---> flask run
+    Server will run
+
+
+__________________________________________________________________Project Set up________________________________________________________________________
