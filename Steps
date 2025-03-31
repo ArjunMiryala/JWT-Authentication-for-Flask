@@ -1,0 +1,4 @@
+STEPS Followed while learning:
+  1) initialize a python Virtual env(remote environment) so that the folder has its own python interpretor and its own library folder
+  2) Install Flask Library
+  3) Go ahead and activate scripts inenv folder by source env/Scripts/activate(works in bash terminal
