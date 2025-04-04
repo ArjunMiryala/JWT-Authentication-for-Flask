@@ -1,10 +1,12 @@
-from flask import Flask
+from flask import Flask, jsonify
 
-def create_app():
-    
 
-    app = Flask(__name__)
+app = Flask(__name__) #created a flask app
 
-    app.config.from_prefixed_env()      #This will load up environmental variables from the .env file with prefix
-    # default prefix is FLASK prefix
-    return app
+@app.route('/') # When you go to http://localhost:5000/
+
+def home():
+    return jsonify(message = "Hello JWT World") #returns a JSON message
+
+if __name__ == '__main__':
+    app.run(debug=True) # Starts the app in debug mode
