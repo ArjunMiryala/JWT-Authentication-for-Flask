@@ -1,0 +1,70 @@
+STEPS Followed while learning:
+---------> install pyjwt (pip)
+---------> install --  pip install Flask flask-jwt-extended
+
+to run the app in terminal enter:
+ python app.py
+
+Then go to http://127.0.0.1:5000/ and you’ll see the message which was retuned 
+
+127.0.0.1 is your own computer. it your local host or "this computer 
+
+what about port 5000? That’s the default port Flask uses.
+
+we can also change it to 8080 by -- app.run(debug=True, port=8080) -- then the server url will be http://127.0.0.1:8080/
+
+about the line: 
+if __name__ == '__main__':
+    app.run(debug=True) 
+Python runs every script from top to bottom. When it hits if __name__ == "__main__":, it's checking how the file was run.
+You run the file directly (like python app.py) → __name__ will be "__main__" → the code inside runs ✅.
+Another file imports this file (like import app) → __name__ will be "app" → the code inside doesn't run ❌.
+
+----->Flask creates your app
+----->request lets you access data sent from the client (like username/password)
+----->jsonify returns JSON data
+
+----->JWTManager sets up the JWT system
+----->create_access_token() makes a real JWT token
+
+
+The key must be kept secret (don’t share in real projects)
+
+
+
+for learning we are using a fake database but in real projects we are gonna use real databases 
+
+
+A claim is just a piece of info you include in the token.
+We already store the user's identity like username = arjun — but what if we want more?
+
+For example:
+
+Whether the user is an admin
+
+The user’s email
+
+Expiry time
+
+Custom permissions
+
+
+
+Access tokens expire quickly (for security). So how do we keep users logged in without asking them to log in again and again?
+
+✅ Solution: Use a refresh token
+Access token: short-lived (e.g., 15 mins).
+
+Refresh token: long-lived (e.g., 30 days) and can generate new access tokens.
+
+🧠 JWTs are stateless — what does that mean?
+Once a JWT is given to a client, it's valid until it expires — the server does not store it.
+That’s cool for performance but bad for logout/security.
+
+So we fix that using a blacklist: a list of tokens we no longer trust.
+
+
+Blacklist :Keeps track of tokens we want to block
+jti = unique ID for each token (used in logout)
+logout() = addds that token's jti to the blacklist
+token_in_blocklist_loader : flask-jwt uses this to check each request

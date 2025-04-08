@@ -1,3 +1,0 @@
-STEPS Followed while learning:
----------> install pyjwt (pip)
----------> install --  pip install Flask flask-jwt-extended
